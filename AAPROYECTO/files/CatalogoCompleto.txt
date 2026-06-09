@@ -1,0 +1,191 @@
+
+=== CATALGOGO DEL VIVERO ===
+BON001 - Olmo Chino (5.0) - P. Base: 45.0€ - Precio de venta: 190.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 8 años.
+	Historial de intervenciones:
+		2026-02-15 - TRASPLANTE (Cambio completo a sustrato akadama)
+		2025-03-10 - PODA_DE_FORMACION (Recorte de brotes vigorosos)
+BON002 - Pino Blanco Japones (2.0) - P. Base: 280.0€ - Precio de venta: 665.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 25 años.
+	Historial de intervenciones:
+		2025-10-12 - PODA_DE_FORMACION (Limpieza de agujas viejas)
+		2024-04-05 - ALAMBRADO (Diseño de ramas principales)
+BON003 - Arce Palmatum Deshojo (3.0) - P. Base: 165.0€ - Precio de venta: 390.0
+	---> Cuidados: Bonsai Estilo: SHAKAN (Inclinado (como si el viento lo empujase)) | Edad: 12 años.
+	Historial de intervenciones:
+		2026-03-08 - TRASPLANTE (Poda de raíces en maceta nueva)
+		2025-05-22 - INJERTO (Pinzado para reducir tamaño de hoja)
+BON004 - Junipero San Jose (1.0) - P. Base: 390.0€ - Precio de venta: 940.0
+	---> Cuidados: Bonsai Estilo: KENGAI (Cascada (el tronco cae hacia abajo)) | Edad: 30 años.
+	Historial de intervenciones:
+		2025-11-20 - TRATAMIENTO (Aplicacion de polisulfuro en madera muerta)
+		2024-09-14 - ALAMBRADO (Modelado de la gran cascada)
+BON005 - Ficus Retusa (14.0) - P. Base: 35.0€ - Precio de venta: 150.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 6 años.
+	Historial de intervenciones:
+		2025-06-01 - PODA_DE_FORMACION (Defoliado parcial de verano para aumentar ramificación)
+BON006 - Azalea Satsuki (4.0) - P. Base: 85.0€ - Precio de venta: 265.0
+	---> Cuidados: Bonsai Estilo: SHAKAN (Inclinado (como si el viento lo empujase)) | Edad: 9 años.
+	Historial de intervenciones:
+		2026-03-05 - TECNICA_DE_MADERA_MUERTA (Aporte de quelatos de hierro para suelo acido)
+		2025-06-10 - PODA_DE_FORMACION (Eliminacion de flores marchitas)
+BON007 - Manzano Silvestre (3.0) - P. Base: 110.0€ - Precio de venta: 300.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 11 años.
+	Historial de intervenciones:
+		2025-10-20 - PODA_DE_FORMACION (Aclarado de ramas tras la caída del fruto)
+		2025-04-15 - TRATAMIENTO (Fungicida preventivo de primavera)
+BON008 - Tejo Comun (1.0) - P. Base: 550.0€ - Precio de venta: 1235.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 45 años.
+	Historial de intervenciones:
+		2025-09-02 - ALAMBRADO (Tensado y corrección de la primera rama)
+		2024-03-18 - TRASPLANTE (Sustrato Kiryuzuna puro de alta calidad)
+BON009 - Acebuche Olivo Silvestre (2.0) - P. Base: 195.0€ - Precio de venta: 510.0
+	---> Cuidados: Bonsai Estilo: SHAKAN (Inclinado (como si el viento lo empujase)) | Edad: 18 años.
+	Historial de intervenciones:
+		2026-04-12 - TRASPLANTE (Cambio a maceta de exposición plana)
+		2025-05-30 - PODA_DE_FORMACION (Poda drástica de estructura y rebaje de tocones)
+BON010 - Buganvilla Espectacular (6.0) - P. Base: 68.0€ - Precio de venta: 273.0
+	---> Cuidados: Bonsai Estilo: KENGAI (Cascada (el tronco cae hacia abajo)) | Edad: 7 años.
+	Historial de intervenciones:
+		2025-07-22 - PODA_DE_FORMACION (Pinzado severo para estimular la siguiente brotación de flor)
+BON011 - Higuera Autoctona (4.0) - P. Base: 55.0€ - Precio de venta: 200.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 8 años.
+	Historial de intervenciones:
+		2025-05-05 - TECNICA_DE_MADERA_MUERTA (Corte manual de hojas grandes para equilibrar la fuerza)
+BON012 - Granado Enano (2.0) - P. Base: 140.0€ - Precio de venta: 360.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 14 años.
+	Historial de intervenciones:
+		2025-06-18 - ALAMBRADO (Correccion estética del ápice superior)
+		2025-03-10 - TRASPLANTE (Mezcla drenante de akadama y puzolana)
+BON013 - Haya Europea (8.0) - P. Base: 38.0€ - Precio de venta: 123.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 5 años.
+	Historial de intervenciones:
+BON014 - Glicinia Wisteria (3.0) - P. Base: 72.0€ - Precio de venta: 277.0
+	---> Cuidados: Bonsai Estilo: KENGAI (Cascada (el tronco cae hacia abajo)) | Edad: 7 años.
+	Historial de intervenciones:
+BON015 - Serissa Phoetida (15.0) - P. Base: 24.5€ - Precio de venta: 109.5
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 4 años.
+	Historial de intervenciones:
+EST001 - Monstera Deliciosa (12.0) - P. Base: 28.5€ - Precio de venta: 142.5
+	---> Cuidados: Interior. false.
+EST002 - Sansevieria Trifasciata (25.0) - P. Base: 16.0€ - Precio de venta: 80.0
+	---> Cuidados: Interior. true.
+EST003 - Poto Dorado (18.0) - P. Base: 10.5€ - Precio de venta: 52.5
+	---> Cuidados: Interior. false.
+EST004 - Ficus Benjamina (8.0) - P. Base: 32.0€ - Precio de venta: 160.0
+	---> Cuidados: Interior. false.
+EST005 - Helecho de Boston (15.0) - P. Base: 14.9€ - Precio de venta: 74.5
+	---> Cuidados: Interior. false.
+EST006 - Anturio Rojo (6.0) - P. Base: 22.0€ - Precio de venta: 110.0
+	---> Cuidados: Interior. false.
+EST007 - Planta del Dinero (20.0) - P. Base: 8.5€ - Precio de venta: 42.5
+	---> Cuidados: Interior. false.
+EST008 - Lavanda Aromatica (30.0) - P. Base: 7.2€ - Precio de venta: 36.0
+	---> Cuidados: Exterior. true.
+EST009 - Rosal Arbustivo (10.0) - P. Base: 18.5€ - Precio de venta: 92.5
+	---> Cuidados: Exterior. true.
+EST010 - Geranio Comun (40.0) - P. Base: 5.5€ - Precio de venta: 27.5
+	---> Cuidados: Exterior. true.
+EST011 - Hortensia Azul (7.0) - P. Base: 21.0€ - Precio de venta: 105.0
+	---> Cuidados: Exterior. false.
+EST012 - Cactus Asiento de Suegra (5.0) - P. Base: 35.0€ - Precio de venta: 175.0
+	---> Cuidados: Exterior. true.
+EST013 - Romero Saborizado (22.0) - P. Base: 6.8€ - Precio de venta: 34.0
+	---> Cuidados: Exterior. true.
+EST014 - Olivo Joven en Maceta (4.0) - P. Base: 55.0€ - Precio de venta: 275.0
+	---> Cuidados: Exterior. true.
+=== CATALGOGO DEL VIVERO ===
+BON001 - Olmo Chino (5.0) - P. Base: 45.0€ - Precio de venta: 190.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 8 años.
+	Historial de intervenciones:
+		2026-02-15 - TRASPLANTE (Cambio completo a sustrato akadama)
+		2025-03-10 - PODA_DE_FORMACION (Recorte de brotes vigorosos)
+BON002 - Pino Blanco Japones (2.0) - P. Base: 280.0€ - Precio de venta: 665.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 25 años.
+	Historial de intervenciones:
+		2025-10-12 - PODA_DE_FORMACION (Limpieza de agujas viejas)
+		2024-04-05 - ALAMBRADO (Diseño de ramas principales)
+BON003 - Arce Palmatum Deshojo (3.0) - P. Base: 165.0€ - Precio de venta: 390.0
+	---> Cuidados: Bonsai Estilo: SHAKAN (Inclinado (como si el viento lo empujase)) | Edad: 12 años.
+	Historial de intervenciones:
+		2026-03-08 - TRASPLANTE (Poda de raíces en maceta nueva)
+		2025-05-22 - INJERTO (Pinzado para reducir tamaño de hoja)
+BON004 - Junipero San Jose (1.0) - P. Base: 390.0€ - Precio de venta: 940.0
+	---> Cuidados: Bonsai Estilo: KENGAI (Cascada (el tronco cae hacia abajo)) | Edad: 30 años.
+	Historial de intervenciones:
+		2025-11-20 - TRATAMIENTO (Aplicacion de polisulfuro en madera muerta)
+		2024-09-14 - ALAMBRADO (Modelado de la gran cascada)
+BON005 - Ficus Retusa (14.0) - P. Base: 35.0€ - Precio de venta: 150.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 6 años.
+	Historial de intervenciones:
+		2025-06-01 - PODA_DE_FORMACION (Defoliado parcial de verano para aumentar ramificación)
+BON006 - Azalea Satsuki (4.0) - P. Base: 85.0€ - Precio de venta: 265.0
+	---> Cuidados: Bonsai Estilo: SHAKAN (Inclinado (como si el viento lo empujase)) | Edad: 9 años.
+	Historial de intervenciones:
+		2026-03-05 - TECNICA_DE_MADERA_MUERTA (Aporte de quelatos de hierro para suelo acido)
+		2025-06-10 - PODA_DE_FORMACION (Eliminacion de flores marchitas)
+BON007 - Manzano Silvestre (3.0) - P. Base: 110.0€ - Precio de venta: 300.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 11 años.
+	Historial de intervenciones:
+		2025-10-20 - PODA_DE_FORMACION (Aclarado de ramas tras la caída del fruto)
+		2025-04-15 - TRATAMIENTO (Fungicida preventivo de primavera)
+BON008 - Tejo Comun (1.0) - P. Base: 550.0€ - Precio de venta: 1235.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 45 años.
+	Historial de intervenciones:
+		2025-09-02 - ALAMBRADO (Tensado y corrección de la primera rama)
+		2024-03-18 - TRASPLANTE (Sustrato Kiryuzuna puro de alta calidad)
+BON009 - Acebuche Olivo Silvestre (2.0) - P. Base: 195.0€ - Precio de venta: 510.0
+	---> Cuidados: Bonsai Estilo: SHAKAN (Inclinado (como si el viento lo empujase)) | Edad: 18 años.
+	Historial de intervenciones:
+		2026-04-12 - TRASPLANTE (Cambio a maceta de exposición plana)
+		2025-05-30 - PODA_DE_FORMACION (Poda drástica de estructura y rebaje de tocones)
+BON010 - Buganvilla Espectacular (6.0) - P. Base: 68.0€ - Precio de venta: 273.0
+	---> Cuidados: Bonsai Estilo: KENGAI (Cascada (el tronco cae hacia abajo)) | Edad: 7 años.
+	Historial de intervenciones:
+		2025-07-22 - PODA_DE_FORMACION (Pinzado severo para estimular la siguiente brotación de flor)
+BON011 - Higuera Autoctona (4.0) - P. Base: 55.0€ - Precio de venta: 200.0
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 8 años.
+	Historial de intervenciones:
+		2025-05-05 - TECNICA_DE_MADERA_MUERTA (Corte manual de hojas grandes para equilibrar la fuerza)
+BON012 - Granado Enano (2.0) - P. Base: 140.0€ - Precio de venta: 360.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 14 años.
+	Historial de intervenciones:
+		2025-06-18 - ALAMBRADO (Correccion estética del ápice superior)
+		2025-03-10 - TRASPLANTE (Mezcla drenante de akadama y puzolana)
+BON013 - Haya Europea (8.0) - P. Base: 38.0€ - Precio de venta: 123.0
+	---> Cuidados: Bonsai Estilo: CHOKKAN (Vertical Formal (totalmente recto)) | Edad: 5 años.
+	Historial de intervenciones:
+BON014 - Glicinia Wisteria (3.0) - P. Base: 72.0€ - Precio de venta: 277.0
+	---> Cuidados: Bonsai Estilo: KENGAI (Cascada (el tronco cae hacia abajo)) | Edad: 7 años.
+	Historial de intervenciones:
+BON015 - Serissa Phoetida (15.0) - P. Base: 24.5€ - Precio de venta: 109.5
+	---> Cuidados: Bonsai Estilo: MOYOGI (Vertical Informal (en forma de S)) | Edad: 4 años.
+	Historial de intervenciones:
+EST001 - Monstera Deliciosa (12.0) - P. Base: 28.5€ - Precio de venta: 142.5
+	---> Cuidados: Interior. false.
+EST002 - Sansevieria Trifasciata (25.0) - P. Base: 16.0€ - Precio de venta: 80.0
+	---> Cuidados: Interior. true.
+EST003 - Poto Dorado (18.0) - P. Base: 10.5€ - Precio de venta: 52.5
+	---> Cuidados: Interior. false.
+EST004 - Ficus Benjamina (8.0) - P. Base: 32.0€ - Precio de venta: 160.0
+	---> Cuidados: Interior. false.
+EST005 - Helecho de Boston (15.0) - P. Base: 14.9€ - Precio de venta: 74.5
+	---> Cuidados: Interior. false.
+EST006 - Anturio Rojo (6.0) - P. Base: 22.0€ - Precio de venta: 110.0
+	---> Cuidados: Interior. false.
+EST007 - Planta del Dinero (20.0) - P. Base: 8.5€ - Precio de venta: 42.5
+	---> Cuidados: Interior. false.
+EST008 - Lavanda Aromatica (30.0) - P. Base: 7.2€ - Precio de venta: 36.0
+	---> Cuidados: Exterior. true.
+EST009 - Rosal Arbustivo (10.0) - P. Base: 18.5€ - Precio de venta: 92.5
+	---> Cuidados: Exterior. true.
+EST010 - Geranio Comun (40.0) - P. Base: 5.5€ - Precio de venta: 27.5
+	---> Cuidados: Exterior. true.
+EST011 - Hortensia Azul (7.0) - P. Base: 21.0€ - Precio de venta: 105.0
+	---> Cuidados: Exterior. false.
+EST012 - Cactus Asiento de Suegra (5.0) - P. Base: 35.0€ - Precio de venta: 175.0
+	---> Cuidados: Exterior. true.
+EST013 - Romero Saborizado (22.0) - P. Base: 6.8€ - Precio de venta: 34.0
+	---> Cuidados: Exterior. true.
+EST014 - Olivo Joven en Maceta (4.0) - P. Base: 55.0€ - Precio de venta: 275.0
+	---> Cuidados: Exterior. true.

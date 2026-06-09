@@ -1,0 +1,30 @@
+=== CATALGOGO DEL VIVERO ===
+BON001 - Olmo Chino (5.0) - P. Base: 45.0€ - Precio de venta: 190.0
+BON002 - Pino Blanco Japones (2.0) - P. Base: 280.0€ - Precio de venta: 665.0
+BON003 - Arce Palmatum Deshojo (3.0) - P. Base: 165.0€ - Precio de venta: 390.0
+BON004 - Junipero San Jose (1.0) - P. Base: 390.0€ - Precio de venta: 940.0
+BON005 - Ficus Retusa (14.0) - P. Base: 35.0€ - Precio de venta: 150.0
+BON006 - Azalea Satsuki (4.0) - P. Base: 85.0€ - Precio de venta: 265.0
+BON007 - Manzano Silvestre (3.0) - P. Base: 110.0€ - Precio de venta: 300.0
+BON008 - Tejo Comun (1.0) - P. Base: 550.0€ - Precio de venta: 1235.0
+BON009 - Acebuche Olivo Silvestre (2.0) - P. Base: 195.0€ - Precio de venta: 510.0
+BON010 - Buganvilla Espectacular (6.0) - P. Base: 68.0€ - Precio de venta: 273.0
+BON011 - Higuera Autoctona (4.0) - P. Base: 55.0€ - Precio de venta: 200.0
+BON012 - Granado Enano (2.0) - P. Base: 140.0€ - Precio de venta: 360.0
+BON013 - Haya Europea (8.0) - P. Base: 38.0€ - Precio de venta: 123.0
+BON014 - Glicinia Wisteria (3.0) - P. Base: 72.0€ - Precio de venta: 277.0
+BON015 - Serissa Phoetida (15.0) - P. Base: 24.5€ - Precio de venta: 109.5
+EST001 - Monstera Deliciosa (12.0) - P. Base: 28.5€ - Precio de venta: 142.5
+EST002 - Sansevieria Trifasciata (25.0) - P. Base: 16.0€ - Precio de venta: 80.0
+EST003 - Poto Dorado (18.0) - P. Base: 10.5€ - Precio de venta: 52.5
+EST004 - Ficus Benjamina (8.0) - P. Base: 32.0€ - Precio de venta: 160.0
+EST005 - Helecho de Boston (15.0) - P. Base: 14.9€ - Precio de venta: 74.5
+EST006 - Anturio Rojo (6.0) - P. Base: 22.0€ - Precio de venta: 110.0
+EST007 - Planta del Dinero (20.0) - P. Base: 8.5€ - Precio de venta: 42.5
+EST008 - Lavanda Aromatica (30.0) - P. Base: 7.2€ - Precio de venta: 36.0
+EST009 - Rosal Arbustivo (10.0) - P. Base: 18.5€ - Precio de venta: 92.5
+EST010 - Geranio Comun (40.0) - P. Base: 5.5€ - Precio de venta: 27.5
+EST011 - Hortensia Azul (7.0) - P. Base: 21.0€ - Precio de venta: 105.0
+EST012 - Cactus Asiento de Suegra (5.0) - P. Base: 35.0€ - Precio de venta: 175.0
+EST013 - Romero Saborizado (22.0) - P. Base: 6.8€ - Precio de venta: 34.0
+EST014 - Olivo Joven en Maceta (4.0) - P. Base: 55.0€ - Precio de venta: 275.0
