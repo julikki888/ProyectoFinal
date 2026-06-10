@@ -11,7 +11,7 @@ import javax.swing.table.TableColumnModel;
 
 import controlador.Controlador;
 
-public class Vista extends JPanel{
+public class VistaCliente extends JPanel{
 
 	private static final long serialVersionUID = -5752211613049689258L;
 
@@ -42,7 +42,7 @@ public class Vista extends JPanel{
 	/**
 	 * Constructor
 	 */
-	public Vista() {
+	public VistaCliente() {
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
@@ -300,7 +300,7 @@ public class Vista extends JPanel{
 		
 		JLabel l = new JLabel("Bienvenido: ");
 		
-		lCliente = new JLabel("------");
+		lCliente = new JLabel("Nombre Cliente");
 		lCliente.setFont(new Font("Arial", Font.BOLD, 24));
 		
 		p.add(l);

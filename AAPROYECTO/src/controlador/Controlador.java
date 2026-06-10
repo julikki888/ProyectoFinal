@@ -9,17 +9,29 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import vista.Vista;
+import vista.VistaCliente;
+import vista.VistaGestor;
+import vista.VistaInicio;
 
 public class Controlador implements ActionListener{
-	Vista miVista;
+	VistaInicio miVistaInicio;
+	VistaCliente miVistaCliente;
+	VistaGestor miVistaGestor;
 
-	public Controlador(Vista v) {
-		this.miVista = v;
+	public Controlador(VistaInicio v) {
+		this.miVistaInicio = v;
 		
 		//cargaComboBoxYTable();
+	}
+	public Controlador(VistaCliente v) {
+		this.miVistaCliente = v;
+	}
+	
+	public Controlador(VistaGestor v) {
+		this.miVistaGestor = v;
 	}
 
 	/*private void cargaComboBoxYTable() {
@@ -37,7 +49,14 @@ public class Controlador implements ActionListener{
 	}
 */
 	@Override
-	public void actionPerformed(ActionEvent e) {/*
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==miVistaInicio.getbIniciar()) {
+			miVistaInicio.setVisible(false);
+			this.mostrarVistaCliente();
+		}
+		
+		/*
 		if(e.getSource()==miVista.getbInfo()) {
 			JOptionPane.showMessageDialog(miVista,
 					miVivero.buscarPlanta(miVista.getModeloCbPlantas()
@@ -153,5 +172,24 @@ public class Controlador implements ActionListener{
 		}//fin rbTodas*/
 	}
 
+	private void mostrarVistaCliente() {
+		VistaCliente miVista = new VistaCliente();
+		
+		Controlador ctr = new Controlador(miVista);
+		
+		miVista.control(ctr);
+		
+		JFrame ventana = new JFrame("Gestion de Tienda");
+		
+		ventana.setContentPane(miVista);
+		
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.pack();
+		ventana.setVisible(true);
+		
+	}
+
+	
+	
 	
 }
