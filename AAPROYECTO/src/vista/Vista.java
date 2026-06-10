@@ -19,6 +19,7 @@ public class Vista extends JPanel{
 	/**
 	 * Variables de instancia
 	 */
+	
 	private JComboBox<String> cbPlantas;
 	private DefaultComboBoxModel<String> modeloCbPlantas;
 
@@ -34,6 +35,9 @@ public class Vista extends JPanel{
 
 	private JTable tablaCatalogo;
 	private DefaultTableModel modeloTablaCatalogo;
+	
+	private JLabel lCliente;
+	private JButton bHistorialCliente, bFavoritos, bRegresar;
 
 	/**
 	 * Constructor
@@ -48,12 +52,14 @@ public class Vista extends JPanel{
 		panelPrincipal.add(preparaPanelTitulo());
 		panelPrincipal.add(preparaPanelCompras());
 		panelPrincipal.add(preparaPanelCatalogo());
+		panelPrincipal.add(preparaPanelCliente());
 		
 		this.setBackground(Color.white);
 		this.add(panelPrincipal);
 	}
 
-	
+
+
 	/**
 	 * Método que se encarga de prepara el panel con el título y el logo
 	 * @return
@@ -186,7 +192,7 @@ public class Vista extends JPanel{
 	
 		JPanel p = new JPanel(new BorderLayout());
 		p.setBackground(Color.white);
-		p.setBorder(new TitledBorder("Catálogo de plantas"));
+		p.setBorder(new TitledBorder("Catálogo de la tienda"));
 		
 		p.add(preparaPNorteCatalogo(), BorderLayout.NORTH);
 		p.add(preparaPCentroCatalogo(), BorderLayout.SOUTH);
@@ -267,6 +273,61 @@ public class Vista extends JPanel{
 	}
 
 
+	
+	/**
+	 * Metodo que prepara el Panel de los clientes,
+	 * en el se mostrara el nombre del cliente que haya iniciado sesion, y tres botones,
+	 * uno sera el historial de compras, otro productos favoritos del cliente, y
+	 * el ultimo sera un boton para salir
+	 */
+	private JPanel preparaPanelCliente() {
+		
+		JPanel p = new JPanel(new BorderLayout());
+		p.setBackground(Color.white);
+		p.setBorder(new TitledBorder("Informacion Cliente"));
+		
+		p.add(panelCentralClientes(),BorderLayout.CENTER);
+		p.add(panelSurClientes(),BorderLayout.SOUTH);
+		
+		return p;
+	}
+	
+	/**
+	 * Metodo para preparar el panel central de clientes
+	 */
+	private JPanel panelCentralClientes() {
+		JPanel p = new JPanel();
+		
+		JLabel l = new JLabel("Bienvenido: ");
+		
+		lCliente = new JLabel("------");
+		lCliente.setFont(new Font("Arial", Font.BOLD, 24));
+		
+		p.add(l);
+		p.add(lCliente);
+		
+		return p;
+	}
+	
+	/**
+	 * Metodo para preparar el panel sur de clientes
+	 */
+	private JPanel panelSurClientes() {
+		JPanel p = new JPanel();
+		
+		bHistorialCliente = new JButton("Historial de Compras");
+		bFavoritos = new JButton("Mis Productos Favoritos");
+		bRegresar = new JButton("Volver al Inicio");
+		
+		p.add(bHistorialCliente);
+		p.add(bFavoritos);
+		p.add(bRegresar);
+		
+		return p;
+	}
+	
+	
+	
 	/**
 	 * Métodos getter
 	 */
