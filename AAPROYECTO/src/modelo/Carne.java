@@ -3,15 +3,18 @@ package modelo;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class Carne implements Comparable<Carne>{
+public class Carne implements Comparable<Carne>{
 	
 	/**
-	 * Clase carne, padre de clases Cerdo, Ternera, Pollo
-	 * Heredaran las variables Nombre, idProducto, Stock,Precio_base,Proveedor
-	 * El toString lo modificas aqui, queremos que se vea como: 
+	 * Clase carne, variables Nombre, idProducto, Stock,Precio_base,Proveedor
+	 * El toString, queremos que se vea como: 
 	 * 			C1 - Cerdo al ajillo - Stock - Precio_Venta - Proveedor
-	 * Habra una clase abstracta Precio_venta 
+	 * habra un metodo PrecioVenta
 	 */
+	/**
+	 * Variables de clase
+	 */
+	public static final int POLLO=25, CERDO=15, TERNERA=10;
 	
 	/**
 	 * Variables de Instancia
@@ -19,20 +22,14 @@ public abstract class Carne implements Comparable<Carne>{
 	private String id,nombre,proveedor;
 	private int stock;
 	private double precioBase;
-	private LocalDate fecha;
 
-	public Carne(String id, String nombre, String proveedor, int stock, double precioBase, String fecha) {
+	public Carne(String id, String nombre, String proveedor, int stock, double precioBase) {
 		this.id = id;
 		this.nombre = nombre;
 		this.proveedor = proveedor;
 		this.stock = stock;
 		this.precioBase = precioBase;
-		if (LibFechas8.isFechaCorrecta(fecha)) {
-			this.fecha = LibFechas8.convierteStringToLocalDate(fecha);
-		}else {
-			this.fecha = LocalDate.now();
-
-		}
+		
 	}
 
 	public String getId() {return id;}
@@ -45,8 +42,7 @@ public abstract class Carne implements Comparable<Carne>{
 	public void setStock(int stock) {this.stock = stock;}
 	public double getPrecioBase() {return precioBase;}
 	public void setPrecioBase(double precioBase) {this.precioBase = precioBase;}
-	public LocalDate getFecha() {return fecha;}
-	public void setFecha(LocalDate fecha) {this.fecha = fecha;}
+
 
 	@Override
 	public int hashCode() {
@@ -70,7 +66,18 @@ public abstract class Carne implements Comparable<Carne>{
 		return this.id.compareToIgnoreCase(o.id);
 	}
 	
-	public abstract double precioVenta();
+	public double precioVenta() {
+		if(this.id.charAt(0)=='C') {
+			return this.getStock()>5?this.getPrecioBase()
+					:this.getPrecioBase()+(this.getPrecioBase()*CERDO);
+		}
+		if(this.id.charAt(0)=='T') {
+			return this.getStock()>5?this.getPrecioBase()
+					:this.getPrecioBase()+(this.getPrecioBase()*TERNERA);
+		}
+		return this.getStock()>5?this.getPrecioBase()
+				:this.getPrecioBase()+(this.getPrecioBase()*POLLO);
+	}
 	
 	
 	@Override

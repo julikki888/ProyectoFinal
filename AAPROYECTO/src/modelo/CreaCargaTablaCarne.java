@@ -1,16 +1,18 @@
 package modelo;
-import java.sql.*;
-import java.util.Scanner;
 
-import java.io.*;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
 
-
-public class CreaCargaTablaDisco {
+public class CreaCargaTablaCarne {
 
 	public static void main(String[] args) {
-
 		String url = "jdbc:mysql://localhost:3306/tienda";
 		String usuario = "admin";
 		String clave   = ")hIFhcueidRbpEc/";
@@ -20,10 +22,10 @@ public class CreaCargaTablaDisco {
 			System.out.println("Conexion establecida");
 			
 			// Metodo que crea la tabla disco
-			creaTablaDiscos(conexion);
+			creaTablaProductos(conexion);
 			
 			// Metodo que carga datos en la tabla disco a partir de un fichero
-			cargaTablaDiscos(conexion);
+			cargaTablaProductos(conexion);
 		}
 		catch (SQLException e) {
 			printSQLException(e);
@@ -32,65 +34,52 @@ public class CreaCargaTablaDisco {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	/**
-	 * Crea la tabla DISCOS
-	 * @param con: Conexion
-	 */
-	public static void creaTablaDiscos(Connection con) throws SQLException
+
+	public static void creaTablaProductos(Connection con) throws SQLException
 	{
 		String creaTabla = "create table tienda.productos " +
-	                       "(codigo INT NOT NULL PRIMARY KEY, " +
-				           "producto VARCHAR(50) NOT NULL, " +
-	                       "procedencia VARCHAR(50) NOT NULL, " +
-				           "fecha DATE, " +
-	                       "precio DOUBLE)";
-
+	            "(codigo VARCHAR(10) NOT NULL PRIMARY KEY, " +
+		        "producto VARCHAR(50) NOT NULL, " +
+	            "proveedor VARCHAR(50) NOT NULL, " +
+		        "stock INT, " +
+	            "precio_base DOUBLE)";
+		
 		System.out.println("Se va a ejecutar: "+creaTabla);
 		
 		try (Statement stmt = con.createStatement()) {
 			stmt.executeUpdate(creaTabla);
-			System.out.println("Tabla discos creada");
+			System.out.println("Tabla productos creada");
 		}
 		
 	}
 
-		
-	/**
-	 * A�ade datos desde un fichero a la tabla discos
-	 * @param con
-	 * @throws SQLException
-	 */
-	public static void cargaTablaDiscos(Connection con) throws SQLException {
+	public static void cargaTablaProductos(Connection con) throws SQLException {
 
-		try (Scanner sc = new Scanner(Path.of("./files/discos.txt"),StandardCharsets.UTF_8)){
+		try (Scanner sc = new Scanner(Path.of("./files/productos.txt"),StandardCharsets.UTF_8)){
 			
 			while (sc.hasNextLine()) {
 
 				String [] arrayDatos = sc.nextLine().split("-");
 
-				String sqlString = "INSERT INTO discos VALUES (?,?,?,?,?)";
+				String sqlString = "INSERT INTO productos VALUES (?,?,?,?,?)";
 				
 				try (PreparedStatement ps = con.prepareStatement(sqlString)) {
 
-					ps.setInt(1, Integer.parseInt(arrayDatos[0])); // Código
-					ps.setString(2, arrayDatos[1]); // Título
-					ps.setString(3, arrayDatos[2]); // Autor
-					ps.setDate(4, Date.valueOf(LibFechas8.convierteStringToLocalDate(arrayDatos[3]))); // Fecha
-					ps.setDouble(5, Double.parseDouble(arrayDatos[4])); // Precio
+					ps.setString(1, arrayDatos[0]); // Código
+					ps.setString(2, arrayDatos[1]); // Producto
+					ps.setString(3, arrayDatos[2]); // Proveedor
+					ps.setInt(4, Integer.parseInt(arrayDatos[3]));//Stock
+					ps.setDouble(5, Double.parseDouble(arrayDatos[4])); // Precio_Base
 
 					ps.executeUpdate();
 				}
 			}
-			System.out.println("Discos volcados desde fichero correctamente");
+			System.out.println("Productos volcados desde fichero correctamente");
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-
 	/**
 	 * Método que muestra una descripcion completa de la excepcion
 	 * que se ha producido

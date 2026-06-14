@@ -3,16 +3,21 @@ package vista;
 import java.awt.*;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 import controlador.Controlador;
 
-public class VistaInicio extends JPanel{
+public class VistaInicio extends JFrame{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public static final Color COLOR_PRINCIPAL = new Color(255, 138, 138),
+			COLOR_SECUNDARIO = new Color(115, 0, 0);
+	
 	/**
 	 * Variable de instancia
 	 */
@@ -23,14 +28,28 @@ public class VistaInicio extends JPanel{
 	
 	
 	public VistaInicio() {
+		
+		
+
+		
+		JPanel pPrincipal = new JPanel();
 		JPanel p = new JPanel(new BorderLayout());
-	
+		
+		pPrincipal.setBackground(COLOR_PRINCIPAL);
+		p.setBorder(new LineBorder(COLOR_SECUNDARIO,3,true));
 		
 		p.add(panelNorte(),BorderLayout.NORTH);
 		p.add(panelCentral(),BorderLayout.CENTER);
 		p.add(panelSur(),BorderLayout.SOUTH);
 		
-		this.add(p);
+		pPrincipal.add(p);
+		cargaContenedor(pPrincipal);
+		
+		this.setTitle("Inicio de Sesión");
+		this.setContentPane(pPrincipal);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.pack();
+		this.setVisible(true);
 	}
 	
 	private JPanel panelNorte() {
@@ -38,6 +57,7 @@ public class VistaInicio extends JPanel{
 		
 		JLabel l = new JLabel("Inicia Sesión");
 		l.setFont(new Font("Arial", Font.BOLD, 24));
+		l.setForeground(Color.BLACK);
 		
 		p.add(l);
 		
@@ -51,8 +71,11 @@ public class VistaInicio extends JPanel{
 		cbClientes = new JComboBox<>(modelocbClientes);
 		bIniciar = new JButton("Iniciar");
 		
+		cbClientes.setBorder(new LineBorder(COLOR_SECUNDARIO));
+		
 		p.add(cbClientes);
 		p.add(bIniciar);
+		cargaButton(p);
 		
 		return p;
 	}
@@ -64,9 +87,40 @@ public class VistaInicio extends JPanel{
 		bGestion = new JButton("Inicio sesion Gestor");
 		p.add(bGestion);
 		
+		cargaButton(p);
+
 		return p;
 	}
 
+	
+	/**
+	 * Metodo que recore el panel para que cambie el color a todos los botones ponga el borde raised
+	 */
+	public void cargaButton(Container c) {
+	    
+	    for (Component componente : c.getComponents()) {
+	        
+	        if (componente instanceof JButton) {
+	            componente.setBackground(COLOR_SECUNDARIO);
+	            ((JButton) componente).setBorder(new BevelBorder(BevelBorder.RAISED));
+	            ((JButton) componente).setForeground(Color.WHITE);
+	        }
+	    }
+	}
+	
+	/**
+	 * Metodo que recore los Contenedores poniendo los JPanels del color principal
+	 */
+	public void cargaContenedor(Container c) {
+	    
+	    for (Component componente : c.getComponents()) {
+	        
+	    	if (componente instanceof JPanel) {
+	    		((JPanel) componente).setBackground(COLOR_PRINCIPAL);
+	    		cargaContenedor((Container) componente);
+	        }
+	    }
+	}
 	
 	
 	public void control(Controlador ctr) {

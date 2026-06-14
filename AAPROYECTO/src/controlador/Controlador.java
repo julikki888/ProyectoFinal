@@ -7,11 +7,13 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import modelo.DAOProductos;
 import vista.VistaCliente;
 import vista.VistaGestor;
 import vista.VistaInicio;
@@ -20,19 +22,33 @@ public class Controlador implements ActionListener{
 	VistaInicio miVistaInicio;
 	VistaCliente miVistaCliente;
 	VistaGestor miVistaGestor;
+	private DAOProductos miDAO;
 
-	public Controlador(VistaInicio v) {
-		this.miVistaInicio = v;
-		
+
+	public Controlador(VistaInicio v1,VistaCliente v2,VistaGestor v3) {
+		this.miVistaInicio = v1;
+		this.miVistaCliente = v2;
+		this.miVistaGestor = v3;
+		try {
+			this.miDAO = new DAOProductos();
+		}
+	catch (SQLException e) {
+		JOptionPane.showMessageDialog(miVistaInicio, "Problema SQL");
+		System.exit(0);
+	}
+	catch (NullPointerException e) {
+		JOptionPane.showMessageDialog(miVistaInicio, "Problema al cargar la BD");
+		System.exit(0);
+	}
+	catch (Exception e) {
+		JOptionPane.showMessageDialog(miVistaInicio, "El programa se debe reiniciar");
+		e.printStackTrace();
+	}
+
+
 		//cargaComboBoxYTable();
 	}
-	public Controlador(VistaCliente v) {
-		this.miVistaCliente = v;
-	}
-	
-	public Controlador(VistaGestor v) {
-		this.miVistaGestor = v;
-	}
+
 
 	/*private void cargaComboBoxYTable() {
 		String[] array = new String[5];
@@ -53,7 +69,22 @@ public class Controlador implements ActionListener{
 		
 		if(e.getSource()==miVistaInicio.getbIniciar()) {
 			miVistaInicio.setVisible(false);
-			this.mostrarVistaCliente();
+			miVistaCliente.setVisible(true);
+		}
+		if(e.getSource()==miVistaInicio.getbGestion()) {
+			miVistaInicio.setVisible(false);
+			miVistaGestor.setVisible(true);
+		}
+		
+		if(e.getSource()==miVistaCliente.getbRegresar()) {
+			miVistaCliente.setVisible(false);
+			miVistaInicio.setVisible(true);
+		}
+		
+		if(e.getSource()==miVistaGestor.getbGuardar() &&
+				miVistaGestor.getbGuardar().getText().equalsIgnoreCase("Regresar")) {
+			miVistaGestor.setVisible(false);
+			miVistaInicio.setVisible(true);
 		}
 		
 		/*
@@ -172,22 +203,7 @@ public class Controlador implements ActionListener{
 		}//fin rbTodas*/
 	}
 
-	private void mostrarVistaCliente() {
-		VistaCliente miVista = new VistaCliente();
-		
-		Controlador ctr = new Controlador(miVista);
-		
-		miVista.control(ctr);
-		
-		JFrame ventana = new JFrame("Gestion de Tienda");
-		
-		ventana.setContentPane(miVista);
-		
-		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ventana.pack();
-		ventana.setVisible(true);
-		
-	}
+
 
 	
 	

@@ -11,9 +11,12 @@ import javax.swing.table.TableColumnModel;
 
 import controlador.Controlador;
 
-public class VistaCliente extends JPanel{
+public class VistaCliente extends JFrame{
 
 	private static final long serialVersionUID = -5752211613049689258L;
+
+	public static final Color COLOR_PRINCIPAL = new Color(255, 138, 138),
+			COLOR_SECUNDARIO = new Color(115, 0, 0);
 
 	
 	/**
@@ -43,6 +46,7 @@ public class VistaCliente extends JPanel{
 	 * Constructor
 	 */
 	public VistaCliente() {
+		JPanel p = new JPanel();
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
@@ -54,8 +58,15 @@ public class VistaCliente extends JPanel{
 		panelPrincipal.add(preparaPanelCatalogo());
 		panelPrincipal.add(preparaPanelCliente());
 		
-		this.setBackground(Color.white);
-		this.add(panelPrincipal);
+		p.setBackground(Color.white);
+		p.add(panelPrincipal);
+		
+
+		this.setContentPane(p);
+		this.setTitle("Ventana Cliente");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.pack();
+		this.setVisible(false);
 	}
 
 
@@ -185,7 +196,7 @@ public class VistaCliente extends JPanel{
 	
 	
 	/**
-	 * Método que prepara el panel con el catálogo de plantas a mostrar
+	 * Método que prepara el panel con el catálogo de carne a mostrar
 	 * @return
 	 */
 	private JPanel preparaPanelCatalogo() {
@@ -350,11 +361,17 @@ public class VistaCliente extends JPanel{
 	public JRadioButton getRbTernera() {return rbTernera;}
 	public JRadioButton getRbPollo() {return rbPollo;}
 
-
 	public JTable getTablaCatalogo() {return tablaCatalogo;}
 	public DefaultTableModel getModeloTablaCatalogo() {	return modeloTablaCatalogo;}
+		
+	public static long getSerialversionuid() {return serialVersionUID;}
+	public JLabel getlCliente() {return lCliente;}
+	public JButton getbHistorialCliente() {return bHistorialCliente;}
+	public JButton getbFavoritos() {return bFavoritos;}
+	public JButton getbRegresar() {return bRegresar;}
 
-	
+
+
 	/**
 	 * Método que añade el control de eventos a los diferentes componentes
 	 * @param ctr
@@ -370,5 +387,7 @@ public class VistaCliente extends JPanel{
 		this.rbCerdo.addActionListener(ctr);
 		this.rbTodas.addActionListener(ctr);
 		this.rbPollo.addActionListener(ctr);
+		
+		this.bRegresar.addActionListener(ctr);
 	}
 }

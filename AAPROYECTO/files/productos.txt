@@ -1,0 +1,6 @@
+C1-Carne de Cerdo estandar-Granja de Pepe-5-10
+C2-Carne de Cerdo estandar2-Granja de Juan-10-15
+T1-Carne de Ternera estandar-Granja de Pepe-7-25
+T2-Carne de Ternera estandar2-Granja de Juan-8-30
+P1-Carne de Pollo estandar-Granja de Pepe-15-5
+P2-Carne de Pollo estandar2-Granja de Juan-19-8
