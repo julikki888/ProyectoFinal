@@ -1,5 +1,7 @@
 package test;
 
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 
 import controlador.Controlador;

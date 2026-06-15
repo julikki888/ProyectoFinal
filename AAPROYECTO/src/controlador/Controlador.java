@@ -33,6 +33,7 @@ public class Controlador implements ActionListener{
 			this.miDAO = new DAOProductos();
 		}
 	catch (SQLException e) {
+		System.out.println(e.getMessage());
 		JOptionPane.showMessageDialog(miVistaInicio, "Problema SQL");
 		System.exit(0);
 	}

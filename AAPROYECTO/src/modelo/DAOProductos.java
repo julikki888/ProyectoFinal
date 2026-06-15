@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
- * Esta clase implementa el patrón DAO con la tabla Discos, este patrón ofrece 
+ * Esta clase implementa el patrón DAO con la tabla productos, este patrón ofrece 
  * operaciones para interactuar con la base de datos. 
  * 
  * Se encarga de realizar todas las operaciones CRUD es el acrónimo de 
@@ -79,7 +79,7 @@ public class DAOProductos {
 	 * @throws SQLException 
 	 */
 	public void crearConsulta() throws SQLException {
-		String sqlString = "SELECT * FROM DISCOS";
+		String sqlString = "SELECT * FROM PRODUCTOS";
 		
 		this.rsNavegar = stmt.executeQuery(sqlString);
 	}
@@ -198,15 +198,15 @@ public class DAOProductos {
 	
 		rsNavegar.beforeFirst(); // Para posicionar la consulta al principio
 		
-		List<Carne> listaDiscos = new ArrayList<>();
+		List<Carne> listaProductos = new ArrayList<>();
 
 		while (rsNavegar.next()) {
-			listaDiscos.add(crearCarne());
+			listaProductos.add(crearCarne());
 		}
 
 		rsNavegar.beforeFirst();
 		
-		return listaDiscos;
+		return listaProductos;
 	}
 	
 	

@@ -10,7 +10,7 @@ public class VistaGestor extends JFrame{
 	
 	private static final long serialVersionUID = -968892632994221823L;
 	
-	public static final Color COLOR_PRINCIPAL = new Color(255, 138, 138),
+	public static final Color COLOR_PRINCIPAL = new Color(255, 176, 176),
 				COLOR_SECUNDARIO = new Color(115, 0, 0);
 	
 	
@@ -45,6 +45,7 @@ public class VistaGestor extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
 		this.setVisible(false);
+		setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("img/logo.png"));
 
 
 	}
@@ -144,8 +145,15 @@ public class VistaGestor extends JFrame{
 	        
 	        if (componente instanceof JButton) {
 	            componente.setBackground(COLOR_SECUNDARIO);
-	            ((JButton) componente).setBorder(new BevelBorder(BevelBorder.RAISED));
 	            ((JButton) componente).setForeground(Color.WHITE);
+	            // 1. Creamos el efecto 3D (puede ser BevelBorder.RAISED o LOWERED)
+	            BevelBorder borde3D = new BevelBorder(BevelBorder.RAISED);
+
+	            // 2. Creamos el margen interno transparente para darle el tamaño extra
+	            EmptyBorder margenInterno = new EmptyBorder(2, 13, 2, 13); // (arriba, izquierda, abajo, derecha)
+
+	            // 3. Los fusionamos: el 3D se queda EXTERIOR y el margen se queda INTERIOR
+	            ((JButton) componente).setBorder(new CompoundBorder(borde3D, margenInterno));
 	        }
 	    }
 	}

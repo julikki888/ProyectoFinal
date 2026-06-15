@@ -2,7 +2,10 @@ package vista;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +18,7 @@ public class VistaCliente extends JFrame{
 
 	private static final long serialVersionUID = -5752211613049689258L;
 
-	public static final Color COLOR_PRINCIPAL = new Color(255, 138, 138),
+	public static final Color COLOR_PRINCIPAL = new Color(255, 176, 176),
 			COLOR_SECUNDARIO = new Color(115, 0, 0);
 
 	
@@ -23,8 +26,8 @@ public class VistaCliente extends JFrame{
 	 * Variables de instancia
 	 */
 	
-	private JComboBox<String> cbPlantas;
-	private DefaultComboBoxModel<String> modeloCbPlantas;
+	private JComboBox<String> cbProductos;
+	private DefaultComboBoxModel<String> modeloCbProductos;
 
 	private JButton bInfo, bAñadirCarrito;
 	private JComboBox<Integer> cbUnidades;
@@ -47,7 +50,8 @@ public class VistaCliente extends JFrame{
 	 */
 	public VistaCliente() {
 		JPanel p = new JPanel();
-		
+		p.setBackground(COLOR_PRINCIPAL);
+
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
 		panelPrincipal.setBackground(Color.white);
@@ -58,15 +62,16 @@ public class VistaCliente extends JFrame{
 		panelPrincipal.add(preparaPanelCatalogo());
 		panelPrincipal.add(preparaPanelCliente());
 		
-		p.setBackground(Color.white);
 		p.add(panelPrincipal);
 		
+		cargaContenedor(p);
 
 		this.setContentPane(p);
 		this.setTitle("Ventana Cliente");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
 		this.setVisible(false);
+		setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("img/logo.png"));
 	}
 
 
@@ -79,7 +84,7 @@ public class VistaCliente extends JFrame{
 		JPanel pTitulo = new JPanel();
 		pTitulo.setBackground(Color.white);
 
-		JLabel titulo = new JLabel("Carnicerias Picasso", JLabel.CENTER);
+		JLabel titulo = new JLabel("-- Carnicerias Picasso --", JLabel.CENTER);
 		titulo.setForeground(Color.decode("#5E0606"));
 		titulo.setFont(new Font("Comic Sans MS",Font.BOLD, 28));
 		
@@ -96,9 +101,10 @@ public class VistaCliente extends JFrame{
 	private JPanel preparaPanelCompras() {
 		
 		JPanel p = new JPanel(new BorderLayout());
-		p.setBackground(Color.white);
-		p.setBorder(new TitledBorder("Área de compras de clientes"));
-		
+		p.setBorder(new TitledBorder(new LineBorder(COLOR_SECUNDARIO,3,true),"Área de compras de clientes"));
+		((TitledBorder)((JPanel)p).getBorder()).setTitleColor(Color.BLACK);
+		((TitledBorder)((JPanel)p).getBorder()).setTitleFont(new Font("Arial", Font.BOLD, 16));		
+	
 		p.add(preparaPNorte(), BorderLayout.NORTH);
 		p.add(preparaPCentro(), BorderLayout.CENTER);
 
@@ -118,6 +124,8 @@ public class VistaCliente extends JFrame{
 		
 		p.add(pSur, BorderLayout.SOUTH);
 		
+		cargaButton(pSur);
+
 		return p;
 	}
 	
@@ -131,27 +139,32 @@ public class VistaCliente extends JFrame{
 		JPanel pNorte = new JPanel(new FlowLayout(FlowLayout.CENTER,10,10));
 		pNorte.setBackground(Color.white);
 
-		// El comboBox de plantas tiene un DefaultComboBoxModel en su interior, ya que este objeto nos
+		// El comboBox de productos tiene un DefaultComboBoxModel en su interior, ya que este objeto nos
 		// va a permitir el uso de muchos más métodos para modificar el combo durante la ejecución
-		modeloCbPlantas = new DefaultComboBoxModel<>();
-		cbPlantas = new JComboBox<String>(modeloCbPlantas);
-		cbPlantas.setPreferredSize(new Dimension(200,25));
+		modeloCbProductos = new DefaultComboBoxModel<>();
+		cbProductos = new JComboBox<String>(modeloCbProductos);
+		cbProductos.setPreferredSize(new Dimension(200,25));
+		cbProductos.setBorder(new LineBorder(COLOR_SECUNDARIO));
 
 		bInfo = new JButton("Información");
 		
 		cbUnidades = new JComboBox<Integer>();
+		cbUnidades.setBorder(new LineBorder(COLOR_SECUNDARIO));
 		for (int i=1; i<=20; i++)
 			cbUnidades.addItem(i);
 		
 		bAñadirCarrito = new JButton("Añadir al carrito");
 		
 		// Añadir todos los componentes al panel del norte
-		pNorte.add(new JLabel("Planta"));
-		pNorte.add(cbPlantas);
+		pNorte.add(new JLabel("Producto"));
+		pNorte.add(cbProductos);
 		pNorte.add(bInfo);
 		pNorte.add(new JLabel("Unidades"));
 		pNorte.add(cbUnidades);
 		pNorte.add(bAñadirCarrito);
+		
+		cargaButton(pNorte);
+		cargaL(pNorte);
 		
 		return pNorte;
 	}
@@ -163,7 +176,6 @@ public class VistaCliente extends JFrame{
 	private JPanel preparaPCentro() {
 
 		JPanel p = new JPanel();
-		p.setBackground(Color.white);
 		
 		// Crear un objeto DefaultTableModel que estará dentro del JTable
 		modeloTablaCompras = new DefaultTableModel();
@@ -202,8 +214,9 @@ public class VistaCliente extends JFrame{
 	private JPanel preparaPanelCatalogo() {
 	
 		JPanel p = new JPanel(new BorderLayout());
-		p.setBackground(Color.white);
-		p.setBorder(new TitledBorder("Catálogo de la tienda"));
+		p.setBorder(new TitledBorder(new LineBorder(COLOR_SECUNDARIO,3,true),"Catálogo de la tienda"));
+		((TitledBorder)((JPanel)p).getBorder()).setTitleColor(Color.BLACK);
+		((TitledBorder)((JPanel)p).getBorder()).setTitleFont(new Font("Arial", Font.BOLD, 16));	
 		
 		p.add(preparaPNorteCatalogo(), BorderLayout.NORTH);
 		p.add(preparaPCentroCatalogo(), BorderLayout.SOUTH);
@@ -224,19 +237,11 @@ public class VistaCliente extends JFrame{
 		rbCerdo = new JRadioButton("Carne de Cerdo",false);
 		rbTernera = new JRadioButton("Carne de Ternera");
 		rbPollo = new JRadioButton("Carne de Pollo");
-
-		
-		rbTodas.setBackground(Color.white);
-		rbCerdo.setBackground(Color.white);
-		rbTernera.setBackground(Color.white);
-		rbPollo.setBackground(Color.white);
-
 		
 		bgTipo.add(rbTodas);
 		bgTipo.add(rbCerdo);
 		bgTipo.add(rbTernera);
 		bgTipo.add(rbPollo);
-
 		
 		JPanel pNorte = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		pNorte.setBackground(Color.white);
@@ -245,6 +250,8 @@ public class VistaCliente extends JFrame{
 		pNorte.add(rbCerdo);
 		pNorte.add(rbTernera);
 		pNorte.add(rbPollo);
+		
+		cargaRButton(pNorte);
 		
 		return pNorte;
 	}
@@ -294,8 +301,9 @@ public class VistaCliente extends JFrame{
 	private JPanel preparaPanelCliente() {
 		
 		JPanel p = new JPanel(new BorderLayout());
-		p.setBackground(Color.white);
-		p.setBorder(new TitledBorder("Informacion Cliente"));
+		p.setBorder(new TitledBorder(new LineBorder(COLOR_SECUNDARIO,3,true),"Informacion Cliente"));
+		((TitledBorder)((JPanel)p).getBorder()).setTitleColor(Color.BLACK);
+		((TitledBorder)((JPanel)p).getBorder()).setTitleFont(new Font("Arial", Font.BOLD, 16));	
 		
 		p.add(panelCentralClientes(),BorderLayout.CENTER);
 		p.add(panelSurClientes(),BorderLayout.SOUTH);
@@ -316,7 +324,8 @@ public class VistaCliente extends JFrame{
 		
 		p.add(l);
 		p.add(lCliente);
-		
+		cargaL(p);
+
 		return p;
 	}
 	
@@ -333,17 +342,84 @@ public class VistaCliente extends JFrame{
 		p.add(bHistorialCliente);
 		p.add(bFavoritos);
 		p.add(bRegresar);
+		cargaButton(p);
 		
 		return p;
 	}
 	
 	
+	/**
+	 * Metodo que recore los Contenedores poniendo los JPanels del color principal
+	 */
+	public void cargaContenedor(Container c) {
+	    
+	    for (Component componente : c.getComponents()) {
+	        
+	    	if (componente instanceof JPanel) {
+	    		((JPanel) componente).setBackground(COLOR_PRINCIPAL);
+	    		cargaContenedor((Container) componente);
+	        }
+	    }
+	}
+	
+	
+	/**
+	 * Metodo que recore el panel para que cambie el color a todos los botones ponga el borde raised
+	 */
+	public void cargaButton(Container c) {
+	    
+	    for (Component componente : c.getComponents()) {
+	        
+	        if (componente instanceof JButton) {
+	            componente.setBackground(COLOR_SECUNDARIO);
+	            ((JButton) componente).setForeground(Color.WHITE);
+	            
+	            // 1. Creamos el efecto 3D (puede ser BevelBorder.RAISED o LOWERED)
+	            BevelBorder borde3D = new BevelBorder(BevelBorder.RAISED);
+
+	            // 2. Creamos el margen interno transparente para darle el tamaño extra
+	            EmptyBorder margenInterno = new EmptyBorder(2, 13, 2, 13); // (arriba, izquierda, abajo, derecha)
+
+	            // 3. Los fusionamos: el 3D se queda EXTERIOR y el margen se queda INTERIOR
+	            ((JButton) componente).setBorder(new CompoundBorder(borde3D, margenInterno));
+	        }
+	    }
+	}
+	
+	/**
+	 * Metodo que recore el panel para que cambie el color a todos los botones ponga el borde raised
+	 */
+	public void cargaRButton(Container c) {
+	    
+	    for (Component componente : c.getComponents()) {
+	        
+	        if (componente instanceof JRadioButton) {
+	            componente.setBackground(COLOR_PRINCIPAL);
+	            ((JRadioButton) componente).setForeground(Color.BLACK);
+	            ((JRadioButton) componente).setBorder(new LineBorder(COLOR_SECUNDARIO,2));
+	        }
+	    }
+	}
+	
+	/**
+	 * Metodo que pone los textos en negro
+	 */
+	public void cargaL(Container c) {
+	    
+	
+	    for (Component componente : c.getComponents()) {
+	        
+	    	if (componente instanceof JLabel) {
+	            ((JLabel) componente).setForeground(Color.BLACK);
+	        }
+	    }
+	}
 	
 	/**
 	 * Métodos getter
 	 */
-	public JComboBox<String> getCbPlantas() {return cbPlantas;}
-	public DefaultComboBoxModel<String> getModeloCbPlantas() {return modeloCbPlantas;}
+	public JComboBox<String> getCbProductos() {return cbProductos;}
+	public DefaultComboBoxModel<String> getModeloCbProductos() {return modeloCbProductos;}
 
 	public JButton getbInfo() {return bInfo;}
 	public JButton getbAñadirCarrito() {return bAñadirCarrito;}
