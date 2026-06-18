@@ -187,7 +187,7 @@ public class VistaCliente extends JFrame{
 		headerRenderer.setHorizontalAlignment(SwingConstants.LEFT);
 
 		// Definir las columnas y sus títulos
-		String [] nombreColumnas = {"Ident.","Nombre","Uds.","Precio Ud.","Precio Total"};
+		String [] nombreColumnas = {"Ident.","Nombre","Uds.","Precio Base","Proveedor","Precio Total"};
 		modeloTablaCompras.setColumnIdentifiers(nombreColumnas);
 		
 		// Dar tamaños a las columnas
@@ -197,6 +197,7 @@ public class VistaCliente extends JFrame{
 		columnModel.getColumn(2).setPreferredWidth(50);
 		columnModel.getColumn(3).setPreferredWidth(100);
 		columnModel.getColumn(4).setPreferredWidth(100);
+		columnModel.getColumn(5).setPreferredWidth(100);
 		
 		// Colocar el JTable en un scrollpane
 		JScrollPane sp = new JScrollPane(tablaCompras);
@@ -272,7 +273,7 @@ public class VistaCliente extends JFrame{
 		headerRenderer.setHorizontalAlignment(SwingConstants.LEFT);
 
 		// Definir las columnas y sus títulos
-		String [] nombreColumnas = {"Ident.","Nombre","Stock","Precio base","Precio venta"};
+		String [] nombreColumnas = {"Ident.","Nombre","Stock","Precio base","Proveedor","Precio venta"};
 		modeloTablaCatalogo.setColumnIdentifiers(nombreColumnas);
 		
 		// Dar tamaños a las columnas
@@ -281,6 +282,7 @@ public class VistaCliente extends JFrame{
 		columnModel.getColumn(1).setPreferredWidth(250);
 		columnModel.getColumn(2).setPreferredWidth(50);
 		columnModel.getColumn(3).setPreferredWidth(100);
+		columnModel.getColumn(4).setPreferredWidth(100);
 		columnModel.getColumn(4).setPreferredWidth(100);
 		
 		// Colocar el JTable en un scrollpane

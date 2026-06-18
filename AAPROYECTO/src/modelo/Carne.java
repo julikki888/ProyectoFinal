@@ -67,16 +67,16 @@ public class Carne implements Comparable<Carne>{
 	}
 	
 	public double precioVenta() {
+		if(this.stock>5) {
+			return this.precioBase;
+		}
 		if(this.id.charAt(0)=='C') {
-			return this.getStock()>5?this.getPrecioBase()
-					:this.getPrecioBase()+(this.getPrecioBase()*CERDO);
+			return this.precioBase+(this.precioBase*(CERDO/100));
 		}
 		if(this.id.charAt(0)=='T') {
-			return this.getStock()>5?this.getPrecioBase()
-					:this.getPrecioBase()+(this.getPrecioBase()*TERNERA);
+			return this.precioBase+(this.precioBase*(TERNERA/100));
 		}
-		return this.getStock()>5?this.getPrecioBase()
-				:this.getPrecioBase()+(this.getPrecioBase()*POLLO);
+		return this.precioBase+(this.precioBase*(POLLO/100));
 	}
 	
 	

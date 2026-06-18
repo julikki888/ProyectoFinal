@@ -18,7 +18,7 @@ import java.util.List;
  * 
  */
 
-public class DAOProductos {
+public class DAOClientes{
 
 	/**
 	 * Variables de instancia
@@ -33,7 +33,7 @@ public class DAOProductos {
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
 	 */
-	public DAOProductos() throws ClassNotFoundException, SQLException {
+	public DAOClientes() throws ClassNotFoundException, SQLException {
 		
 		this.estableceConexion();  // Dar valor a la variable con (Connection)
 		
@@ -75,7 +75,7 @@ public class DAOProductos {
 	 * @throws SQLException 
 	 */
 	public void crearConsulta() throws SQLException {
-		String sqlString = "SELECT * FROM PRODUCTOS";
+		String sqlString = "SELECT * FROM CLIENTES";
 		
 		this.rsNavegar = stmt.executeQuery(sqlString);
 	}
@@ -110,78 +110,15 @@ public class DAOProductos {
 	 * @throws SQLException 
 	 * @throws MiExcepcion 
 	 */
-	public Carne crearCarne() throws MiExcepcion, SQLException {
-		return new Carne(
-					rsNavegar.getString("codigo"), 
-					rsNavegar.getString("producto"),
-					rsNavegar.getString("proveedor"),
-					rsNavegar.getInt("stock"),
-					rsNavegar.getDouble("precio_base"));
+	public Cliente crearCliente() throws MiExcepcion, SQLException {
+		return new Cliente(
+					rsNavegar.getInt("codigo"), 
+					rsNavegar.getString("dni"),
+					rsNavegar.getString("nombre"),
+					rsNavegar.getString("direccion"),
+					rsNavegar.getString("telefono"));
 	}
 	
-	/**
-	 * Metodo que permite añadir un nuevo producto (tupla) a la BD
-	 * @param ob -- producto que se va a añadir
-	 * @throws SQLException
-	 */
-	public void insertaCarne(Carne ob) throws SQLException {
-		
-		PreparedStatement ps = 
-				con.prepareStatement("insert into tienda.productos values (?,?,?,?,?)");
-
-		ps.setString(1,ob.getId());
-		ps.setString(2, ob.getNombre());
-		ps.setString(3, ob.getProveedor());
-		ps.setInt(4, ob.getStock());
-		ps.setDouble(5,ob.getPrecioBase());
-		
-		ps.executeUpdate();
-		ps.close();
-	
-		this.crearConsulta();  // Actualizar el resultSet de navegación con el nuevo producto
-	}
-	
-	
-	/**
-	 * Metodo que permite modificar un producto existente en la talba productos, el producto
-	 * con los datos modificados llega como parametro, se puede modificar todo
-	 * excepto el codigo del producto
-	 */
-	public void modificaCarne(Carne ob) throws SQLException {
-		
-		PreparedStatement ps = con.prepareStatement(
-				"UPDATE productos SET producto = ?, proveedor = ?, stock = ?, precio_base = ? WHERE codigo = ?");
-		
-		ps.setString(1,ob.getId());
-		ps.setString(2, ob.getNombre());
-		ps.setString(3, ob.getProveedor());
-		ps.setInt(4, ob.getStock());
-		ps.setDouble(5,ob.getPrecioBase());
-		
-		ps.executeUpdate();
-		ps.close();
-		
-		// Volver a crear la consulta, para que se actualicen los datos en el resultSet de navegacion
-		this.crearConsulta();		
-	}
-	
-	
-	/**
-	 * Metodo que permite borrar el producto cuyo código coincide con el que nos
-	 * llega como parámetro
-	 */
-	public void eliminaProducto(int cod) throws SQLException{
-		PreparedStatement ps = 
-				con.prepareStatement("DELETE FROM productos WHERE codigo = ?");
-		
-		ps.setInt(1, cod);
-
-		ps.executeUpdate();
-		ps.close();
-
-		// Volver a crear la consulta, para actualizar los datos del resultset de navegación
-		this.crearConsulta();
-	}
 
 	
 	/**
@@ -190,52 +127,52 @@ public class DAOProductos {
 	 * @throws SQLException
 	 * @throws MiExcepcion
 	 */
-	public List<Carne> getAll() throws SQLException, MiExcepcion {
+	public List<Cliente> getAll() throws SQLException, MiExcepcion {
 	
 		rsNavegar.beforeFirst(); // Para posicionar la consulta al principio
 		
-		List<Carne> listaProductos = new ArrayList<>();
+		List<Cliente> listaClientes = new ArrayList<>();
 
 		while (rsNavegar.next()) {
-			listaProductos.add(crearCarne());
+			listaClientes.add(crearCliente());
 		}
 
 		rsNavegar.beforeFirst();
 		
-		return listaProductos;
+		return listaClientes;
 	}
 	
 	
 	/**
-	 * Método que busca un producto cuyo codigo coincida con el indicado
+	 * Método que busca un Cliente cuyo codigo coincida con el indicado
 	 * @param cod
 	 * @return
 	 * @throws SQLException
 	 * @throws MiExcepcion
 	 */
-	public Carne buscaCodigo(int cod) throws SQLException, MiExcepcion {
+	public Cliente buscaCodigo(int cod) throws SQLException, MiExcepcion {
 
-		PreparedStatement ps = con.prepareStatement("SELECT * FROM productos WHERE codigo = ?");
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM clientes WHERE codigo = ?");
 		ps.setInt(1, cod);
 
 		ResultSet rs = ps.executeQuery();
 
-		Carne productoBuscado = null;
+		Cliente clienteBuscado = null;
 
 		if (rs.next()) {
-			productoBuscado = 
-					new Carne(
-							rsNavegar.getString("codigo"), 
-							rsNavegar.getString("producto"),
-							rsNavegar.getString("proveedor"),
-							rsNavegar.getInt("stock"),
-							rsNavegar.getDouble("precio_base"));
+			clienteBuscado =
+					new Cliente(
+							rs.getInt("codigo"),
+							rs.getString("dni"),
+							rs.getString("nombre"),
+							rs.getString("direccion"),
+							rs.getString("telefono"));
 		}
 
 		rs.close();
 		ps.close();
 
-		return productoBuscado;
+		return clienteBuscado;
 
 	}
 	

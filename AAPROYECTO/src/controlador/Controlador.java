@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import modelo.DAOProductos;
+import modelo.*;
 import vista.VistaCliente;
 import vista.VistaGestor;
 import vista.VistaInicio;
@@ -22,15 +22,17 @@ public class Controlador implements ActionListener{
 	VistaInicio miVistaInicio;
 	VistaCliente miVistaCliente;
 	VistaGestor miVistaGestor;
-	private DAOProductos miDAO;
+	private DAOProductos miDAOP;
+	private DAOClientes miDAOC;
 
 
-	public Controlador(VistaInicio v1,VistaCliente v2,VistaGestor v3) {
+	public Controlador(VistaInicio v1,VistaCliente v2,VistaGestor v3) throws SQLException, MiExcepcion {
 		this.miVistaInicio = v1;
 		this.miVistaCliente = v2;
 		this.miVistaGestor = v3;
 		try {
-			this.miDAO = new DAOProductos();
+			this.miDAOP = new DAOProductos();
+			this.miDAOC = new DAOClientes();
 		}
 	catch (SQLException e) {
 		System.out.println(e.getMessage());
@@ -46,31 +48,48 @@ public class Controlador implements ActionListener{
 		e.printStackTrace();
 	}
 
-
-		//cargaComboBoxYTable();
+		
+		cargaComboBox();
+		cargaTable();
 	}
 
 
-	/*private void cargaComboBoxYTable() {
-		String[] array = new String[5];
-		for (Planta p : miVivero.listaPlantas()) {
-			miVista.getModeloCbPlantas().addElement(p.getIdPlanta()+" - "+p.getNombreComun());
-			array[0] = p.getIdPlanta();
-			array[1] = p.getNombreComun();
-			array[2] = Double.toString(p.getStock());
-			array[3] = Double.toString(p.getPrecioBase());
-			array[4] = Double.toString(p.calculaPrecioVenta());
-			miVista.getModeloTablaCatalogo().addRow(array);
+	private void cargaComboBox() throws SQLException, MiExcepcion{
+		for (Carne c : miDAOP.getAll()) {
+			miVistaCliente.getModeloCbProductos().addElement(c.toString());
+			miVistaGestor.getModelocbProductos().addElement(c.toString());
+		}
+		for (Cliente c : miDAOC.getAll()) {
+			miVistaInicio.getModelocbClientes().addElement(c.toString());
+		}
+	}
+	
+	private void cargaTable() throws SQLException, MiExcepcion{
+		String[] array = new String[6];
+		String[] auxArray; 
+		
+		for (Carne c : miDAOP.getAll()) {
+			auxArray =  c.toString().split("-");
+			for (int i = 0; i < auxArray.length; i++) {
+				array[i]=auxArray[i];
+			}
+			array[5]=c.precioVenta() +"";
+			miVistaCliente.getModeloTablaCatalogo().addRow(array);
 		}
 		
 	}
-*/
+
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e){
 		
 		if(e.getSource()==miVistaInicio.getbIniciar()) {
 			miVistaInicio.setVisible(false);
 			miVistaCliente.setVisible(true);
+			try {
+				miVistaCliente.getlCliente().setText(extraeNombre());
+			} catch (SQLException | MiExcepcion e1) {
+				e1.printStackTrace();
+			}
 		}
 		if(e.getSource()==miVistaInicio.getbGestion()) {
 			miVistaInicio.setVisible(false);
@@ -204,7 +223,13 @@ public class Controlador implements ActionListener{
 		}//fin rbTodas*/
 	}
 
-
+	private String extraeNombre() throws SQLException, MiExcepcion{
+		
+		
+		
+		return miDAOC.buscaCodigo(Integer.parseInt(String.valueOf(
+				((String) miVistaInicio.getModelocbClientes().getSelectedItem()).charAt(0)))).getNombre();
+	}
 
 	
 	

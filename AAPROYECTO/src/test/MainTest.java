@@ -1,10 +1,12 @@
 package test;
 
 import java.awt.Toolkit;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 
 import controlador.Controlador;
+import modelo.MiExcepcion;
 import vista.*;
 
 
@@ -16,11 +18,21 @@ public class MainTest {
 		VistaCliente miVistaCliente = new VistaCliente();
 		VistaGestor miVistaGestor = new VistaGestor();
 		
-		Controlador ctr = new Controlador(miVista,miVistaCliente,miVistaGestor);
+		Controlador ctr;
 		
-		miVista.control(ctr);		
-		miVistaCliente.control(ctr);
-		miVistaGestor.control(ctr);
+
+		try {
+			ctr = new Controlador(miVista,miVistaCliente,miVistaGestor);
+			
+			miVista.control(ctr);		
+			miVistaCliente.control(ctr);
+			miVistaGestor.control(ctr);
+			
+		} catch (SQLException | MiExcepcion e) {
+			e.printStackTrace();
+		}
+		
+	
 		
 	}
 

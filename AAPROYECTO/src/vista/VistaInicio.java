@@ -30,12 +30,10 @@ public class VistaInicio extends JFrame{
 	
 	
 	public VistaInicio() {
+		JPanel pPrincipal = new JPanel();		
 		
-		
-
-		
-		JPanel pPrincipal = new JPanel();
 		JPanel p = new JPanel(new BorderLayout());
+		p.setPreferredSize(new Dimension(450,150));
 		
 		pPrincipal.setBackground(COLOR_PRINCIPAL);
 		p.setBorder(new LineBorder(COLOR_SECUNDARIO,3,true));
@@ -51,6 +49,7 @@ public class VistaInicio extends JFrame{
 		this.setContentPane(pPrincipal);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("img/logo.png"));
 
@@ -111,7 +110,7 @@ public class VistaInicio extends JFrame{
 	            BevelBorder borde3D = new BevelBorder(BevelBorder.RAISED);
 
 	            // 2. Creamos el margen interno transparente para darle el tamaño extra
-	            EmptyBorder margenInterno = new EmptyBorder(2, 13, 2, 13); // (arriba, izquierda, abajo, derecha)
+	            EmptyBorder margenInterno = new EmptyBorder(3, 16, 3, 16); 
 
 	            // 3. Los fusionamos: el 3D se queda EXTERIOR y el margen se queda INTERIOR
 	            ((JButton) componente).setBorder(new CompoundBorder(borde3D, margenInterno));
