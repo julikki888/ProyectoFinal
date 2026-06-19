@@ -70,6 +70,7 @@ public class VistaCliente extends JFrame{
 		this.setTitle("Ventana Cliente");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
+		this.setLocationRelativeTo(null);
 		this.setVisible(false);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("img/logo.png"));
 	}

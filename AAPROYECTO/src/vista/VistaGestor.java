@@ -44,10 +44,9 @@ public class VistaGestor extends JFrame{
 		this.setTitle("Ventana Gestor");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();
+		this.setLocationRelativeTo(null);
 		this.setVisible(false);
 		setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage("img/logo.png"));
-
-
 	}
 	
 	
@@ -192,6 +191,7 @@ public class VistaGestor extends JFrame{
 		bModificar.addActionListener(ctr);
 		bCancelar.addActionListener(ctr);
 		bEliminar.addActionListener(ctr);
+		cbProductos.addActionListener(ctr);
 	}
 
 
@@ -199,9 +199,9 @@ public class VistaGestor extends JFrame{
 	 * M�todos get de todas la variables de instancia
 	 */
 	public JTextField getTfCodigo() {return tfCodigo;}
-	public JTextField getTfAutor()  {return tfProveedor;}
-	public JTextField getTfTitulo() {return tfNombre;}
-	public JTextField gettfFechaPubli() {return tfStock;}
+	public JTextField getTfProveedor()  {return tfProveedor;}
+	public JTextField getTfNombre() {return tfNombre;}
+	public JTextField getTfStock() {return tfStock;}
 	public JTextField getTfPrecio() {return tfPrecio;}
 
 	public JButton getbNuevo()     {return bNuevo;}

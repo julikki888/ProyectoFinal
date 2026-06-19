@@ -1,6 +1,5 @@
 package modelo;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Carne implements Comparable<Carne>{
@@ -82,7 +81,7 @@ public class Carne implements Comparable<Carne>{
 	
 	@Override
 	public String toString() {
-		return this.id + " - " + this.nombre + " - " + this.stock + " - " + this.precioBase
+		return this.id + " -" + this.nombre + "- " + this.stock + " - " + this.precioBase
 				+ " - " + this.proveedor;
 	}
 	

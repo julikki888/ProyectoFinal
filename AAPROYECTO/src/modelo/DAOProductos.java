@@ -152,11 +152,11 @@ public class DAOProductos {
 		PreparedStatement ps = con.prepareStatement(
 				"UPDATE productos SET producto = ?, proveedor = ?, stock = ?, precio_base = ? WHERE codigo = ?");
 		
-		ps.setString(1,ob.getId());
-		ps.setString(2, ob.getNombre());
-		ps.setString(3, ob.getProveedor());
-		ps.setInt(4, ob.getStock());
-		ps.setDouble(5,ob.getPrecioBase());
+		ps.setString(1, ob.getNombre());
+		ps.setString(2, ob.getProveedor());
+		ps.setInt(3, ob.getStock());
+		ps.setDouble(4,ob.getPrecioBase());
+		ps.setString(5,ob.getId());
 		
 		ps.executeUpdate();
 		ps.close();
@@ -170,11 +170,11 @@ public class DAOProductos {
 	 * Metodo que permite borrar el producto cuyo código coincide con el que nos
 	 * llega como parámetro
 	 */
-	public void eliminaProducto(int cod) throws SQLException{
+	public void eliminaProducto(String cod) throws SQLException{
 		PreparedStatement ps = 
 				con.prepareStatement("DELETE FROM productos WHERE codigo = ?");
 		
-		ps.setInt(1, cod);
+		ps.setString(1, cod);
 
 		ps.executeUpdate();
 		ps.close();
@@ -213,10 +213,10 @@ public class DAOProductos {
 	 * @throws SQLException
 	 * @throws MiExcepcion
 	 */
-	public Carne buscaCodigo(int cod) throws SQLException, MiExcepcion {
+	public Carne buscaCodigo(String cod) throws SQLException, MiExcepcion {
 
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM productos WHERE codigo = ?");
-		ps.setInt(1, cod);
+		ps.setString(1, cod);
 
 		ResultSet rs = ps.executeQuery();
 
@@ -225,11 +225,11 @@ public class DAOProductos {
 		if (rs.next()) {
 			productoBuscado = 
 					new Carne(
-							rsNavegar.getString("codigo"), 
-							rsNavegar.getString("producto"),
-							rsNavegar.getString("proveedor"),
-							rsNavegar.getInt("stock"),
-							rsNavegar.getDouble("precio_base"));
+							rs.getString("codigo"), 
+							rs.getString("producto"),
+							rs.getString("proveedor"),
+							rs.getInt("stock"),
+							rs.getDouble("precio_base"));
 		}
 
 		rs.close();

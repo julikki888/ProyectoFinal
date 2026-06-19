@@ -1,9 +1,7 @@
 package test;
 
-import java.awt.Toolkit;
 import java.sql.SQLException;
 
-import javax.swing.JFrame;
 
 import controlador.Controlador;
 import modelo.MiExcepcion;
