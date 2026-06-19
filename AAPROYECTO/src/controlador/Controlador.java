@@ -13,6 +13,7 @@ import java.time.LocalDate;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import modelo.*;
 import vista.VistaCliente;
@@ -103,8 +104,11 @@ public class Controlador implements ActionListener{
 		 */
 		if(e.getSource()==miVistaCliente.getbAñadirCarrito()) {
 			
+			///Cargamos un array con los datos del combobox y otro donde se almacenan los de la tabla
 			String[] array = new String[6];
 			String[] auxArray = ((String)miVistaCliente.getModeloCbProductos().getSelectedItem()).split("-");
+			int sum =buscarTabla(auxArray[0].trim());
+			
 			array[0]=auxArray[0];
 			array[1]=auxArray[1];
 			array[2]=miVistaCliente.getCbUnidades().getSelectedItem()+"";
@@ -115,15 +119,17 @@ public class Controlador implements ActionListener{
 			} catch (SQLException | MiExcepcion e1) {
 				e1.printStackTrace();
 			}
-			
-			miVistaCliente.getModeloTablaCompras();
-			auxArray[2]=array[2];
-					
-			miVistaCliente.getModeloTablaCompras().addRow(array);
+			if (sum == 0) {
+				System.out.println("Es 0");
+				miVistaCliente.getModeloTablaCompras().addRow(array);
+			}else {
+				eliminaDato(array[0].trim());
+				array[2]=(sum+Integer.parseInt(array[2]))+"";
+				miVistaCliente.getModeloTablaCompras().addRow(array);
+			}
 			try {
 				cargaTable("^[CTP].*");
 			} catch (SQLException | MiExcepcion e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}			
 		}
@@ -202,7 +208,6 @@ public class Controlador implements ActionListener{
 			try {
 				procesoEliminar();
 			} catch (SQLException | MiExcepcion e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		
@@ -281,29 +286,49 @@ public class Controlador implements ActionListener{
 	}
 	
 	private int buscarTabla(String datoBuscado) {
-		// El dato que estás buscando
-		boolean sw = false;
-		int filaEncontrada = 0;
+		System.out.println("Buscando Tabla");
+		boolean sw = true;
+		int stock = 0;
 	
-		var modelo = miVistaCliente.getModeloTablaCatalogo();
+		DefaultTableModel tabla = miVistaCliente.getModeloTablaCompras();
 	
-		// Recorremos únicamente las filas
-		for (int i = 0; i < modelo.getRowCount() && sw==true; i++) {
+		/// Recorremos únicamente las filas
+		for (int i = 0; i < tabla.getRowCount() && sw==true; i++) {
 		    
-		    // Accedemos fijando la columna en 0
-		    String codigo = (String)modelo.getValueAt(i, 0);
-		    
-		    
-		    String textoCelda = codigo.trim();
+		    /// Accedemos fijando la columna en 0
+		    String codigo = tabla.getValueAt(i, 0).toString();
 		        
-		        // Comparamos si coincide con el dato
-		    if (textoCelda.equalsIgnoreCase(datoBuscado)) { 
-		    	sw = true;
-		    	filaEncontrada = i;
-		        sw=false;		    	 
-		        }
+		        /// Comparamos si coincide con el dato
+		    if (codigo.trim().equalsIgnoreCase(datoBuscado)) { 
+		    	stock = Integer.parseInt(tabla.getValueAt(i, 2).toString().trim());
+		        sw = false;		    	
+		        } 
 		    }
-		return filaEncontrada;
+		return stock;
+	}
+	
+	/**
+	 * metodo para borrar una fila de la tabla carrito
+	 */
+	private void eliminaDato(String datoBuscado) {
+		System.out.println("Eliminando fila");
+		boolean sw = true;
+		String codigo;
+		var tabla = miVistaCliente.getModeloTablaCompras();
+	
+		/// Recorremos únicamente las filas
+		for (int i = 0; i < tabla.getRowCount() && sw==true; i++) {
+		    
+		    /// Accedemos fijando la columna en 0
+		    codigo = tabla.getValueAt(i, 0).toString();
+		    		        
+		        /// Comparamos si coincide con el dato y lo borramos
+		    if (codigo.trim().equalsIgnoreCase(datoBuscado)) { 
+		        sw = false;
+		        System.out.println("  asd");
+		        tabla.removeRow(i);
+		    }
+		}
 	}
 	
 	
