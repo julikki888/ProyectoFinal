@@ -1,4 +1,0 @@
-1-12345678Q-Nombre-Direccion-Telefono 123 45 67 89
-2-03186919Q-Julian Barreno Lopez-Calle Calvario 8-697 85 39 42
-3-45642157E-Ethan O`Neill Martin-Calle Dolar 7-656 57 84 95
-4-99676955T-Domi Marco Narvin-Calle Whachiwabo 49-666 48 65 24
